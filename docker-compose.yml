@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    image: 223jmt2830/mohamedalimoula-5sae1-g5-foyer
+    build:
+      context: .
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/db?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 0000
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - db
+  frontend:
+    image: 223jmt2830/foyer-frontend:latest
+    ports:
+      - "4200:80"
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_ROOT_PASSWORD: 0000
+    ports:
+      - "3306:3306"
