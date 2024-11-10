@@ -21,7 +21,7 @@
     <distributionManagement>
         <snapshotRepository>
             <id>nexus</id>
-            <url>http://192.168.33.10:8081/repository/foyer/</url>
+            <url>http://192.168.50.4:8081/repository/foyer/</url>
         </snapshotRepository>
     </distributionManagement>
 
